@@ -1,44 +1,50 @@
 import Vue3ConfirmDialog from './vue3-confirm-dialog.vue'
 import EventBus from './eventBus'
 
+var confirmFunction = paramsList => {
+    if (paramsList.length !== 1) {
+        throw new Error(
+            `Vue3 Confirm dialog: function $confirm() expects exactly one parameter`
+        )
+    }
+    let params = {};
+
+    if (typeof paramsList != 'object' || Array.isArray(paramsList)) {
+        params = paramsList[0];
+    }
+
+    if (params.hasOwnProperty('callback') && typeof params.callback != 'function') {
+        let callbackType = typeof params.callback
+        throw new Error(
+            `Vue3 Confirm dialog: Callback type must be an function. Caught: ${callbackType}. Expected: function`
+        )
+    }
+    EventBus.emit('open', params);
+}
+
+function target() {}
+
+let handler = {
+    apply: (target, thisArg, argumentsList) => {
+        return confirmFunction(argumentsList);
+    },
+    get: (target, prop, receiver) => {
+        if (prop === 'close'){
+            EventBus.emit('close')
+            return true
+        }
+        return false
+    },
+}
+
+export const confirm = new Proxy(target, handler);
 
 export default {
     emits: ['open', 'close'],
-    install(app, args = {}) {
-      if (this.installed) return
+    install: (app, args = {}) => {
 
-      this.installed = true
-      this.params = args
+        app.component(args.componentName || 'vue3-confirm-dialog', Vue3ConfirmDialog)
 
-      app.component(args.componentName || 'vue3-confirm-dialog', Vue3ConfirmDialog)
-
-      const confirm = params => {
-        if (typeof params != 'object' || Array.isArray(params)) {
-          let caughtType = typeof params
-          if (Array.isArray(params)) caughtType = 'array'
-
-          throw new Error(
-            `Options type must be an object. Caught: ${caughtType}. Expected: object`
-          )
-        }
-
-        if (typeof params === 'object') {
-          if (
-            params.hasOwnProperty('callback') &&
-            typeof params.callback != 'function'
-          ) {
-            let callbackType = typeof params.callback
-            throw new Error(
-              `Callback type must be an function. Caught: ${callbackType}. Expected: function`
-            )
-          }
-          EventBus.emit('open',params);
-        }
-      }
-      confirm.close = () => {
-        EventBus.emit('close');
-      }
-
-      app.config.globalProperties.$confirm = confirm;
-    }
-  }
+        app.config.globalProperties.$confirm = confirm;
+    },
+}

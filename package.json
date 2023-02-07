@@ -1,0 +1,32 @@
+{
+  "name": "vue3-confirm-dialog",
+  "version": "1.0.0",
+  "description": "Vue.js 3 version of Simple Confirm Dialog verification plugin",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/42R0N/vue3-confirm-dialog.git"
+  },
+  "keywords": [
+    "vue",
+    "confirm",
+    "dialog",
+    "vue3",
+    "popup",
+    "plugin",
+    "vuejs"
+  ],
+  "devDependencies": {
+    "tiny-emitter": "^2.1.0",
+    "vue": "^3.0.0"
+  },
+  "author": "Aleš Zapadlo, Onur Aslan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/42R0N/vue3-confirm-dialog/issues"
+  },
+  "homepage": "https://github.com/42R0N/vue3-confirm-dialog#readme"
+}
