@@ -13,7 +13,7 @@ Vue.js 3 version of Onur Aslan's Simple Confirm Dialog verification plugin
 ## Install
 
 ```bash
-$ npm install --save vue3-confirm-dialog
+$ npm install --save @zapadale/vue3-confirm-dialog
 ```
 
 ## Quick Start Usage
@@ -21,7 +21,7 @@ $ npm install --save vue3-confirm-dialog
 In app.js:
 
 ```js
-import Vue3ConfirmDialog from 'vue3-confirm-dialog'
+import Vue3ConfirmDialog from '@zapadale/vue3-confirm-dialog'
 
 const app = createApp(); // use your app name
 app.use(Vue3ConfirmDialog);
@@ -82,7 +82,7 @@ methods: {
 Can be used in Vue files as well
 
 ```js
-import { confirm } from 'vue3-confirm-dialog'
+import { confirm } from '@zapadale/vue3-confirm-dialog'
 
 export default {
   namespaced: true,
@@ -121,7 +121,7 @@ The plugin automatically sets global provide() with key "vue3-confirm-dialog".
 <script setup>
 import { inject } from 'vue'
 
-const confirm = inject('vue3-confirm-dialog');
+const confirm = inject('@zapadale/vue3-confirm-dialog');
 
 function test() {
   confirm(

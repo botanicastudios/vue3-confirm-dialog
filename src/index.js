@@ -50,6 +50,6 @@ export default {
         app.config.globalProperties.$confirm = confirm;
 
         //Composition API
-        app.provide('vue3-confirm-dialog', confirm)
+        app.provide('@zapadale/vue3-confirm-dialog', confirm)
     },
 }
