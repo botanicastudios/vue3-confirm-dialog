@@ -45,9 +45,9 @@ In App.vue:
   }
 </script>
 ```
+I recommend creating a app-wide notification component for handling all confirmations
 
-In any of Vue functions :
-
+## Vue Options API:
 ```js
 methods: {
     handleClick(){
@@ -75,9 +75,11 @@ methods: {
     }
   }
 ```
+# Vue Composition API / Vuex files / other \*.js: 
+**Beware: Composition API does not have "this"**
 
-If you want to use it in \*.js file (e.g Vuex Store) import the confirm function directly
-
+## Direct confirm import for Vuex
+Can be used in Vue files as well
 
 ```js
 import { confirm } from 'vue3-confirm-dialog'
@@ -113,6 +115,41 @@ export default {
 }
 ```
 
+## Inject function for Vue files
+The plugin automatically sets global provide() with key "vue3-confirm-dialog".
+```js
+<script setup>
+import { inject } from 'vue'
+
+const confirm = inject('vue3-confirm-dialog');
+
+function test() {
+  confirm(
+        {
+          title: 'Confirm your action',
+          message: 'Are you sure?',
+          disableKeys: false,
+          auth: false,
+          button: {
+            no: 'No',
+            yes: 'Yes'
+          },
+          /**
+          * Callback Function
+          * @param {Boolean} confirm
+          */
+          callback: confirm => {
+            if (confirm) {
+              console.log('Works');
+            }
+          }
+        }
+      )
+})
+
+</script>
+```
+
 ## API
 
 If you want to password confirm, "auth" key is must be true.
@@ -145,7 +182,7 @@ this.$confirm({
 ## Use only for information
 
 If you want to use only for information and you want of see one button in dialog, you can use only one of 'no' or 'yes' button object.
-Beware: clicking the single button still counts as clicking the YES/NO button. So, use "button:{no:'OK'}" if you want to just inform and not call the callback
+**Beware: clicking the single button still counts as clicking the YES/NO button. So, use "button:{no:'OK'}" if you want to just inform and not call the callback**
 
 
 ```js

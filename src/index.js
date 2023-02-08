@@ -37,6 +37,7 @@ let handler = {
     },
 }
 
+//Composition API / Vuex
 export const confirm = new Proxy(target, handler);
 
 export default {
@@ -45,6 +46,10 @@ export default {
 
         app.component(args.componentName || 'vue3-confirm-dialog', Vue3ConfirmDialog)
 
+        //options API
         app.config.globalProperties.$confirm = confirm;
+
+        //Composition API
+        app.provide('vue3-confirm-dialog', confirm)
     },
 }
