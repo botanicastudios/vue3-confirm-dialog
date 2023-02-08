@@ -1,6 +1,6 @@
 {
   "name": "@zapadale/vue3-confirm-dialog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue.js 3 version of Simple Confirm Dialog verification plugin",
   "main": "src/index.js",
   "scripts": {
