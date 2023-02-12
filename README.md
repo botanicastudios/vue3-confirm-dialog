@@ -1,3 +1,8 @@
+[![issues](https://badgen.net/github/issues/42r0n/vue3-confirm-dialog)](https://github.com/42R0N/vue3-confirm-dialog/issues)
+[![npm](https://badgen.net/npm/dt/@zapadale/vue3-confirm-dialog)](https://www.npmjs.com/package/@zapadale/vue3-confirm-dialog)
+[![npm version](https://badge.fury.io/js/@zapadale%2Fvue3-confirm-dialog.svg)](https://www.npmjs.com/package/@zapadale/vue3-confirm-dialog)
+[![license](https://badgen.net/github/license/42r0n/vue3-confirm-dialog)](https://github.com/42R0N/vue3-confirm-dialog/blob/main/LICENSE)
+
 # vue3-confirm-dialog
 Vue.js 3 version of Onur Aslan's Simple Confirm Dialog verification plugin
 
