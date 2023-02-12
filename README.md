@@ -6,7 +6,7 @@
 # vue3-confirm-dialog
 Vue.js 3 version of Onur Aslan's Simple Confirm Dialog verification plugin
 
-![vue-confirm](./images/confirmWindow.png)
+![vue-confirm](https://raw.githubusercontent.com/42R0N/vue3-confirm-dialog/main/images/confirmWindow.png)
 
 ## Plug-and-play confirmation plugin for Vue 3 and Vuex 4, written in the new Conditional API.
 
