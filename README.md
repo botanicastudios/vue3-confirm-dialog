@@ -216,3 +216,6 @@ methods: {
     }
   }
 ```
+## Issues/improvements
+Since I am a beginner at Vue 3/Vuex 4 it would be a great help to report any bugs/improvements you find.
+I am thrilled to fix/add them but I need to know about them. Thank you for your time!
