@@ -1,2 +1,2 @@
-import Emitter from 'tiny-emitter';
+import Emitter from 'pico-emitter';
 export default new Emitter();
