@@ -20,7 +20,7 @@
     "vuejs"
   ],
   "peerDependencies": {
-    "tiny-emitter": "^2.1.0",
+    "pico-emitter": "^1.2.1",
     "vue": "^3.0.0"
   },
   "author": "Aleš Zapadlo, Onur Aslan",
